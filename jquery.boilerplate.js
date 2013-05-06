@@ -16,6 +16,7 @@
 
     // plugin constructor
     function Plugin(element, options) {
+        var dataOptions = {};
         this.element = element;
         // jQuery has an extend method which merges the contents of two or
         // more objects, storing the result in the first object. The first object
@@ -25,8 +26,7 @@
         // Allow data-attr option setting? Remove if you don't need it.
         // string and number type defaults can be overridden by data attributes of the same name (with dashes in place of camelCase), if a data-config attribute is present on the widget element.
         // options set via data attributes will be overridden by options passed directly as arguments
-        if( this.element.is( "[data-config]" ) ){
-            var dataOptions = {};
+        if( this.element.is( "[data-config]" ) ){        
             for( var i in defaults ){
                 if( defaults.hasOwnProperty( i ) && ( typeof( defaults[ i ] === "string" ) ) || typeof( defaults[ i ] === "number" ) || typeof( defaults[ i ] === "boolean" ) ){
                     var dataOption = elem.attr( i.replace( /[A-Z]/g, function( c ) {
